@@ -1,0 +1,32 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+html {
+    background-color: rgb(57, 57, 57);
+}
+
+block-container-title {
+    position: flex;
+    top: 10%;
+    left: 7.5%;
+    right: 7.5%;
+    padding: 2%;
+    /*  */
+    background-color: rgb(167, 167, 167);
+}
+
+block-container-basic {
+    position: flex;
+    top: 15%;
+    left: 7.5%;
+    right: 7.5%;
+    height: fit-content;
+    /*  */
+    background-color: rgb(148, 148, 148);
+}
+
+frame-basic-text {
+    padding: 5%;
+}
