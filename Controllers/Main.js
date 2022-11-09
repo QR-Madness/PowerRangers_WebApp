@@ -1,6 +1,6 @@
-require("../Models/Item");
+require("../Models/Incident");
 
-const Item = require('mongoose').model('Item');
+const Item = require('mongoose').model('Incident');
 
 const DBConn = require('../Config/Database');
 
