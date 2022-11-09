@@ -27,16 +27,28 @@ app.use(methodOverride());
 //app.set("views", "Views");
 app.set("views", path.join(__dirname, '../Views'));
 app.set('view engine', 'ejs'); // express -e
-// app.use(express.static('Public'));
-app.use(express.static(path.join(__dirname, '../Public')));
-
+app.use(express.static('Public'));
 app.use(express.static('node_modules'));
+
 
 app.use('/', routes);
 app.use('/incident-list', incidentRouter);
 
 // Configuring MongoDB and our Connection to it
-const Mongo_DBConnection = require('../Config/Database');
+let Mongo_DBConnection = require('../Config/Database');
+const { expr } = require('jquery');
+
+//point mongoose to the db uri
+
+mongoose.connect(Mongo_DBConnection.URI);
+
+let mongoDB = mongoose.connection;
+mongoDB.on('error', console.error.bind(console, 'Connection Error'));
+mongoDB.once('open', () => {
+    console.log('connected to mongoDB...');
+});
+
+
 
 
 //point mongoose to the db uri
@@ -44,8 +56,8 @@ const Mongo_DBConnection = require('../Config/Database');
 mongoose.connect(Mongo_DBConnection.URI);
 
 let mongoDB = mongoose.connection;
-mongoDB.on('error',console.error.bind(console,'Connection Error'));
-mongoDB.once('open',()=>{
+mongoDB.on('error', console.error.bind(console, 'Connection Error'));
+mongoDB.once('open', () => {
     console.log('connected to mongoDB...');
 });
 
