@@ -11,5 +11,5 @@ const Mongo_DBConnection = mongoose.connect(MongoDB_Config.db);
 module.exports = Mongo_DBConnection;
 */
 module.exports = {
-    "URI":"mongodb://localhost/incident_management"
+    "URI": "mongodb://localhost/incident_management"
 }

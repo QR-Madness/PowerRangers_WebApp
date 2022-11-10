@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<%- include('../Partials/Header.ejs') %>
+<body class="bg-dark">
+    <%- include('../Partials/Navbar.ejs') %>
+
+        <main class="container">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <h1><%= PageTitle %></h1><br>
+                    <a href="incident-list/add" class="btn btn-primary mb-5"><i class="fa fa-plus"></i> Add an incident</a>
+                    <table class="table table-border table-striped table-hover table-dark">
+                        <!-- header row-->
+                        <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Number</th>
+                            <th scope="col" class="text-center">State</th>
+                            <th scope="col" class="text-center">Description</th>
+                            <th scope="col" class="text-center">Priority</th>
+                            <th scope="col" class="text-center">Category</th>
+                            <th scope="col" class="text-center">Assigned To</th>
+                            <th scope="col" class="text-center">Assigned By</th>
+                            <th class="text-center"></th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let count = 0; count <IncidentList.length; count++){ %>
+                            <tr>
+                                <td class="text-center"><%= IncidentList[count].number %></td>
+                                <td class="text-center"><%= IncidentList[count].state %></td>
+                                <td class="text-center"><%= IncidentList[count].description %></td>
+                                <td class="text-center"><%= IncidentList[count].priority %></td>
+                                <td class="text-center"><%= IncidentList[count].category %></td>
+                                <td class="text-center"><%= IncidentList[count].assignedTo %></td>
+                                <td class="text-center"><%= IncidentList[count].assignedBy %></td>
+                                <td class="text-center col-1">
+                                    <a
+                                      href="/incident-list/edit/<%= IncidentList[count]._id %>"
+                                      class="btn btn-primary btn-sm"
+                                    >
+                                      <i class="fas fa-pencil-alt"></i>Edit</a
+                                    >
+                                  </td>
+                                  <td class="text-center col-1">
+                                    <a
+                                      href="/incident-list/delete/<%= IncidentList[count]._id %>"
+                                      class="btn btn-danger btn-sm"
+                                    >
+                                      <i class="fas fa-trash-alt"></i>Delete</a
+                                    >
+                                  </td>
+                            </tr>
+
+                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/css/bootstrap.min.js"></script>
+<script src="/jquery/dist/jquery.min.js"></script>
+</body>
+
+</html>
