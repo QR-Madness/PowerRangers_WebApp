@@ -49,16 +49,4 @@ mongoDB.once('open', () => {
 });
 
 
-
-
-//point mongoose to the db uri
-
-mongoose.connect(Mongo_DBConnection.URI);
-
-let mongoDB = mongoose.connection;
-mongoDB.on('error', console.error.bind(console, 'Connection Error'));
-mongoDB.once('open', () => {
-    console.log('connected to mongoDB...');
-});
-
 module.exports = app;
