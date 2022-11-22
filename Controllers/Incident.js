@@ -16,7 +16,8 @@ module.exports.displayIncidentList = (req, res, next) => {
 
             res.render("Incidents/incident", {
                 PageTitle: "Incident Lists",
-                IncidentList: incidentList
+                IncidentList: incidentList,
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
@@ -25,7 +26,8 @@ module.exports.displayIncidentList = (req, res, next) => {
 
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render("Incidents/add", { PageTitle: 'Add Incident' });
+    res.render("Incidents/add", { PageTitle: 'Add Incident',
+    displayName: req.user ? req.user.displayName : '' });
 };
 
 module.exports.processAddPage = (req, res, next) => {
@@ -61,7 +63,8 @@ module.exports.displayEditPage = (req, res, next) => {
             // show the edit view
             res.render("Incidents/edit", {
                 PageTitle: "Edit Contact",
-                incident: incidentToEdit
+                incident: incidentToEdit,
+                displayName: req.user ? req.user.displayName : '' 
             });
         }
     });
