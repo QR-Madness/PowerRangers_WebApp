@@ -7,6 +7,8 @@ let Incident = require("../Models/Incident");
 const Item = require('mongoose').model('Incident');
 
 const DBConn = require('../Config/Database');
+const passport = require("passport");
+
 
 module.exports.displayIncidentList = (req, res, next) => {
     Incident.find((err, incidentList) => {
@@ -16,16 +18,24 @@ module.exports.displayIncidentList = (req, res, next) => {
 
             res.render("Incidents/incident", {
                 PageTitle: "Incident Lists",
-                IncidentList: incidentList
+                IncidentList: incidentList,
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
 };
 
 
-
 module.exports.displayAddPage = (req, res, next) => {
-    res.render("Incidents/add", { PageTitle: 'Add Incident' });
+    if (!req.user) {
+        // sending to log in
+        res.redirect("/login");
+    } else {
+        res.render("Incidents/add", {
+            PageTitle: 'Add Incident',
+            displayName: req.user ? req.user.displayName : ''
+        });
+    }
 };
 
 module.exports.processAddPage = (req, res, next) => {
@@ -51,57 +61,73 @@ module.exports.processAddPage = (req, res, next) => {
 };
 
 module.exports.displayEditPage = (req, res, next) => {
-    let id = req.params.id;
+    if (!req.user) {
+        // sending to log in
+        res.redirect("/login");
+    } else {
+        let id = req.params.id;
 
-    Incident.findById(id, (err, incidentToEdit) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            // show the edit view
-            res.render("Incidents/edit", {
-                PageTitle: "Edit Contact",
-                incident: incidentToEdit
-            });
-        }
-    });
+        Incident.findById(id, (err, incidentToEdit) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            } else {
+                // show the edit view
+                res.render("Incidents/edit", {
+                    PageTitle: "Edit Contact",
+                    incident: incidentToEdit,
+                    displayName: req.user ? req.user.displayName : ''
+                });
+            }
+        });
+    }
 };
 
 module.exports.processEditPage = (req, res, next) => {
-    let id = req.params.id;
+    if (!req.user) {
+        // sending to log in
+        res.redirect("/login");
+    } else {
+        let id = req.params.id;
 
-    let updateIncident = Incident({
-        _id: id,
-        number: req.body.number,
-        state: req.body.state,
-        description: req.body.description,
-        priority: req.body.priority,
-        category: req.body.category,
-        assignedTo: req.body.assignedTo,
-        assignedBy: req.body.assignedBy
-    });
+        let updateIncident = Incident({
+            _id: id,
+            number: req.body.number,
+            state: req.body.state,
+            description: req.body.description,
+            priority: req.body.priority,
+            category: req.body.category,
+            assignedTo: req.body.assignedTo,
+            assignedBy: req.body.assignedBy
+        });
 
-    Incident.updateOne({ _id: id }, updateIncident, (err) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            // refresh the incident-list
-            res.redirect("/incident-list");
-        }
-    });
+        Incident.updateOne({_id: id}, updateIncident, (err) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            } else {
+                // refresh the incident-list
+                res.redirect("/incident-list");
+            }
+        });
+    }
 };
 
 module.exports.performDelete = (req, res, next) => {
-    let id = req.params.id;
+    if (!req.user) {
+        // sending to log in
+        res.redirect("/login");
+    } else {
+        let id = req.params.id;
 
-    Incident.remove({ _id: id }, (err) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            // refresh the incident-list
-            res.redirect("/incident-list");
-        }
-    });
+        Incident.remove({_id: id}, (err) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            } else {
+                // refresh the incident-list
+                res.redirect("/incident-list");
+            }
+        });
+    }
 };
