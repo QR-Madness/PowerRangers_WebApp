@@ -48,7 +48,7 @@ app.use(express.static('node_modules'));
 
 //setup express session
 app.use(session({
-    secret:"powerRanger",
+    secret: "powerRanger",
     saveUninitialized: false,
     resave: false
 }));
@@ -80,15 +80,15 @@ jwtOptions.secretOrKey = Database.Secret;
 
 let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
     User.findById(jwt_payload.id)
-      .then(user => {
-        return done(null, user);
-      })
-      .catch(err => {
-        return done(err, false);
-      });
-  });
-  
-  passport.use(strategy);
+        .then(user => {
+            return done(null, user);
+        })
+        .catch(err => {
+            return done(err, false);
+        });
+});
+
+passport.use(strategy);
 
 app.use('/', routes);
 app.use('/incident-list', incidentRouter);
