@@ -150,3 +150,18 @@ module.exports.performLogout = (req, res, next) => {
         res.redirect('/');
     });
 }
+
+// module.exports.displayAboutPage = (req, res, next) => {
+//     res.render('about', { PageTitle: 'About', displayName: req.user ? req.user.displayName : ''});
+// }
+
+module.exports.displayAboutPage = (req, res, next) => {
+    
+        res.render('about', 
+        {
+           PageTitle: "About Us",
+           //displayName: req.user ? req.user.displayName : '' 
+        })
+    
+}
+
