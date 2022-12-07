@@ -5,7 +5,9 @@
 html {
     background-color: rgb(57, 57, 57);
 }
-
+.wrapper{
+    background-color: rgb(36, 35, 36);
+}
 block-container-title {
     position: flex;
     top: 10%;
@@ -28,4 +30,45 @@ block-container-basic {
 
 frame-basic-text {
     padding: 5%;
+    font-size: 10vw;
+}
+.main-text{
+    max-width: 70%;
+}
+.main-text p{
+    margin-left: 5%;
+    margin-bottom: 4%;
+    font-size: 60px;
+    font-weight: 200;
+    color: bisque;
+}
+
+.main-text p2{
+    margin-left: 9%;
+    font-size: 30px;
+    font-weight: 100;
+    color: rgb(224, 223, 220);
+}
+
+.main-text p:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+}
+
+
+.gear{
+    margin-top: 7%;
+    margin-left:80%;
+    max-width: 20%;
+    -webkit-transform: rotate(50deg) scale(1.3);
+    transform: rotate(50deg) scale(1.3);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.gear:hover {
+    transform: scale(1.1);
+    transition: all 1s;
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
 }
