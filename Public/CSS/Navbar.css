@@ -9,8 +9,8 @@
 nav {
     width: 100%;
     background-color: rgb(92, 95, 92);
-    padding-left: 30px;
-    padding-right: 10px;
+    padding-left: 30vw;
+    padding-right: 10vw;
     display: flexbox;
     align-items: center;
     justify-content: space-between;
@@ -28,18 +28,18 @@ nav {
 
 .nav-item {
     border-style: solid;
-    border-color: rgb(24, 198, 241);
+    border-color: rgb(24, 198, 242);
     border-radius: 25px;
     background-color: blue;
-    margin-right: 60px;
-    margin-left: 40px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-right: 1vw;
+    margin-left: 2vw;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
 }
 
 .nav-item a {
     display: flex;
-    padding: 10px 70px;
+    padding: 1vw 3vw;
     text-decoration: none;
     color: white;
 }
