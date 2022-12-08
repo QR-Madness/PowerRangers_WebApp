@@ -20,4 +20,7 @@ routes.post('/register', ControllerMain.processRegisterPage);
 
 routes.get('/logout', ControllerMain.performLogout);
 
+// get route for displaying About page
+routes.get('/about', ControllerMain.displayAboutPage);
+
 module.exports = routes;

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<%- include('Partials/Header.ejs') %>
+
+<body>
+  <%- include('Partials/Navbar.ejs') %>
+  <div style="margin: 10px">
+    <div class="block-container-title text-center">
+      <h2>
+        <%= PageTitle %>
+      </h2>
+    </div>
+
+    <div class="block-container-basic">
+      <div class="frame-basic-text">
+        <p>Welcome to the Power Rangers website for all your incident management needs. We are a group of six people who
+          have managed build this website from scratch. Below you will find more info about our team. Thanks for
+          stopping
+          by!</p>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <div class="card" style="width: 18rem;">
+          <img src="/Img/Logo.png" width="60" height="70" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Tanvir Mahmud</h5>
+            <p class="card-text">Student # 301106599</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="/Img/Logo.png" width="60" height="70" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">My Duyen Phung</h5>
+            <p class="card-text">Student # 301218170</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="/Img/Logo.png" width="60" height="70" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Rupinder Singh</h5>
+            <p class="card-text">Student # 301242011</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="/Img/Logo.png" width="60" height="70" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Justin Pember</h5>
+            <p class="card-text">Student # 301132685</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="/Img/Logo.png" width="60" height="70" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Kam Lun Wong</h5>
+            <p class="card-text">Student # 301291896</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="/Img/Logo.png" width="60" height="70" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Mathen Panchalingam</h5>
+            <p class="card-text">Student # 300922475</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container text-center">
+        <h3>Contact Form</h3>
+        <form style=" width: 300px; margin: auto;">
+          <div class="input-group" style="margin-bottom: 10px">
+            <span class="input-group-addon" id="basic-addon2">First Name</span>
+            <input type="text" class="form-control" placeholder="First Name" aria-describedby="basic-addon2">
+
+          </div>
+
+          <div class="input-group" style="margin-bottom: 10px">
+            <span class="input-group-addon" id="basic-addon2">Last Name</span>
+            <input type="text" class="form-control" placeholder="Last Name" aria-describedby="basic-addon2">
+
+          </div>
+
+          <div class="input-group" style="margin-bottom: 10px">
+            <span class="input-group-addon" id="basic-addon2">Country</span>
+
+            <select name="cars" id="cars" style="width: 100%; border: 2px solid #cbcccb;
+          padding: 6px; ">
+              <option value="volvo">Canada</option>
+              <option value="saab">U.S.</option>
+              <option value="mercedes">Britain</option>
+              <option value="audi">Germany</option>
+            </select>
+          </div>
+          <div class="input-group" style="margin-bottom: 10px">
+            <span class="input-group-addon" id="basic-addon2">Subject</span>
+            <input type="text" class="form-control" placeholder="Write your comments here"
+              aria-describedby="basic-addon2">
+
+          </div>
+
+          <a href="#" class="btn btn-primary">Submit</a>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
