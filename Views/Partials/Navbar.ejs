@@ -1,28 +1,24 @@
 <nav class="nav">
-  <ul class="nav-links">
-    <li class="logo">
-      <a href="/"><img src="/Img/Logo.png" width="60" height="70" /></a>
-    </li>
-    <li class="nav-item"><a href="#">Dashboard</a></li>
-    <li class="nav-item"><a href="/about/">About Us</a></li>
-    <li class="nav-item"><a href="/incident-list/">Tickets</a></li>
+branchFoot
+    <ul class="nav-links">
+        <li class="logo">
+            <a href="/"><img src="/Img/Logo.png" width="60" height="70"></a>
+        </li>
+        <li class="nav-item"><a href="/incident-list/">Dashboard</a></li>
+        <li class="nav-item"><a href="/incident-list/">Tickets</a></li>
 
-    <% if(typeof displayName == 'string' && displayName){ %>
-    <li class="navbar-text">
-      <i class="fas fa-lg fa-user"><%= displayName %></i>
-    </li>
-    <li class="nav-item">
-      <a href="/logout" class="nav-link">
-        <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a
-      >
-    </li>
-    <% } else { %>
-    <li class="nav-item">
-      <a href="/login" class="nav-link">
-        <i class="fas fa-lg fa-sign-in-alt"></i>Login</a
-      >
-    </li>
+        <% if(typeof displayName == 'string' && displayName){ %>
+            <li class="navbar-text"><i class="fas fa-lg fa-user"><%= displayName %></i></li>
+            <li class="nav-item">
+                <a href="/logout" class="nav-link">
+                    <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a>
+            </li>
+            <% } else { %>
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">
+                        <i class="fas fa-lg fa-sign-in-alt"></i>Login</a>
+                </li>
 
-    <% } %>
-  </ul>
+                <% } %>
+    </ul>
 </nav>
